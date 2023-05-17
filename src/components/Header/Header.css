@@ -1,0 +1,9 @@
+.header_text{
+    font-family: 'Bubblegum Sans', cursive;
+    font-weight: 600;
+    font-size: 48px;
+    line-height: 22px;
+    margin: 0 auto 0 auto;
+    padding: 5px 0 5px 0;
+    background-color: aqua;
+}
