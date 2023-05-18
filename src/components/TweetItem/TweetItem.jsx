@@ -1,5 +1,5 @@
 import PropTypes from 'prop-types';
-import { useState } from 'react';
+import { useState,useEffect } from 'react';
 import logo from './../../images/logo.png'
 import quest from './../../images/questions.png'
 import defAvatar from './../../images/avatar.png'
@@ -7,17 +7,37 @@ import arrow from './../../images/arrow.png'
 import css from './TweetItem.module.css'
 import { updateFollowers } from '../services/tweetApi';
 
-const TweetItem = ({ userId,avatar, tweets, followers }) => {
-  const [isFollowing, setIsFollowing] = useState(false);
+const TweetItem = ({ id,avatar, tweets, followers }) => {
+  const [isFollowing, setIsFollowing] = useState(localStorage.getItem('isFollowing') === 'true');
 
-  const handleClick = async () => {
-    try {
-      await updateFollowers(userId, followers + 1);
-      setIsFollowing(true);
-    } catch (error) {
-      console.error('Произошла ошибка при обновлении followers', error);
+useEffect(() => {
+    if (isFollowing) {
+      localStorage.setItem('isFollowing', true);
+    } else {
+      localStorage.removeItem('isFollowing');
     }
-  };
+}, [isFollowing]);
+
+const toggleFollow = async () => {
+  try {
+    switch (isFollowing) {
+      case true:
+        await updateFollowers(id, followers - 1);
+        setIsFollowing(false);
+        localStorage.removeItem('isFollowing');
+        break;
+      case false:
+        await updateFollowers(id, followers + 1);
+        setIsFollowing(true);
+        localStorage.setItem('isFollowing', true);
+        break;
+      default:
+        break;
+    }
+  } catch (error) {
+    console.error('Произошла ошибка при обновлении followers', error);
+  }
+};
   return (
     <div className={css.tweet_item}>
       <img src={logo} className={css.tweet_item_logo}></img>
@@ -29,7 +49,7 @@ const TweetItem = ({ userId,avatar, tweets, followers }) => {
       <button
         type="button"
         className={`${css.tweet_item_button} ${isFollowing ? css.following : ''}`}
-        onClick={handleClick}
+        onClick={toggleFollow}
       >
         {isFollowing ? 'FOLLOWING' : 'FOLLOW'}
       </button>
@@ -41,7 +61,7 @@ TweetItem.propTypes = {
   avatar: PropTypes.string,
   tweets: PropTypes.number,
   followers: PropTypes.number,
-  userId:PropTypes.number
+  id:PropTypes.string
 };
 
 export default TweetItem;

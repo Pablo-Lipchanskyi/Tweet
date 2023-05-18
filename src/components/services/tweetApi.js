@@ -12,9 +12,10 @@ export const fetchTweets = async () => {
     }
 }
 
-export const updateFollowers = async (userId, followers) => {
+export const updateFollowers = async (id, followers) => {
+  const strId = id.toString();
   try {
-    const response = await axios.put(`/users/:${userId}`, { followers });
+    const response = await axios.put(`/users/${strId}`, { followers });
     return response.data;
   } catch (error) {
     console.error('Произошла ошибка при обновлении followers', error);

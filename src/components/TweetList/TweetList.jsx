@@ -3,13 +3,14 @@ import TweetItem from './../TweetItem/TweetItem';
 import { fetchTweets } from '../services/tweetApi';
 import css from './TweetList.module.css';
 
-const TweetList = () => {
+export const TweetList = () => {
   const [tweets, setTweets] = useState([]);
 
   useEffect(() => {
     const fetchData = async () => {
       const data = await fetchTweets();
       setTweets(data);
+      console.log(data)
     };
 
     fetchData();
@@ -20,6 +21,7 @@ const TweetList = () => {
       {tweets.map(({ avatar, tweets, followers, id }) => (
         <TweetItem
           key={id}
+          id={id}
           avatar={avatar}
           tweets={tweets}
           followers={followers}
@@ -29,4 +31,3 @@ const TweetList = () => {
   );
 };
 
-export default TweetList;
