@@ -1,11 +1,7 @@
-import React, { useEffect, useState } from 'react';
-import axios from 'axios';
-import TweetItem from './TweetItem';
-
-export const fetchTweets = async () => {
-  const response = await axios.get('/tweet');
-  return response.data;
-}
+import { useEffect, useState } from 'react';
+import TweetItem from './../TweetItem/TweetItem';
+import { fetchTweets } from '../services/tweetApi';
+import css from './TweetList.module.css';
 
 const TweetList = () => {
   const [tweets, setTweets] = useState([]);
@@ -20,9 +16,14 @@ const TweetList = () => {
   }, []);
 
   return (
-    <div>
-      {tweets.map((tweet) => (
-        <TweetItem key={tweet.id} tweet={tweet} />
+    <div className={css.tweet_list}>
+      {tweets.map(({ avatar, tweets, followers, id }) => (
+        <TweetItem
+          key={id}
+          avatar={avatar}
+          tweets={tweets}
+          followers={followers}
+        />
       ))}
     </div>
   );
