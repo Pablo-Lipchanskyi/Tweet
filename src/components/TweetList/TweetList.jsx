@@ -5,6 +5,7 @@ import css from './TweetList.module.css';
 
 export const TweetList = () => {
   const [tweets, setTweets] = useState([]);
+   const [visibleTweets, setVisibleTweets] = useState(4);
 
   useEffect(() => {
     const fetchData = async () => {
@@ -16,9 +17,15 @@ export const TweetList = () => {
     fetchData();
   }, []);
 
+ const loadMoreTweets = () => {
+    setVisibleTweets(prevVisibleTweets => prevVisibleTweets + 4); 
+  };
+
+
   return (
+    <>
     <div className={css.tweet_list}>
-      {tweets.map(({ avatar, tweets, followers, id }) => (
+      {tweets.slice(0, visibleTweets).map(({ avatar, tweets, followers, id }) => (
         <TweetItem
           key={id}
           id={id}
@@ -28,6 +35,12 @@ export const TweetList = () => {
         />
       ))}
     </div>
+    {visibleTweets < tweets.length && (
+        <button type="button" onClick={loadMoreTweets} className={css.tweet_list_button}>
+          Load More
+        </button>
+      )}
+    </>
   );
 };
 

@@ -1,9 +1,13 @@
 .header_text{
+    display: flex;
+    justify-content: center;
+    align-items: center;
     font-family: 'Bubblegum Sans', cursive;
     font-weight: 600;
     font-size: 48px;
-    line-height: 22px;
     margin: 0 auto 0 auto;
     padding: 5px 0 5px 0;
-    background-color: aqua;
+    background: linear-gradient(114.99deg, #471CA9 -0.99%, #5736A3 54.28%, #4B2A99 78.99%);
+    height: 50px;
+    color: #EBD8FF;
 }

@@ -1,15 +1,22 @@
-
+import { lazy } from 'react'
+import {Route,Routes} from 'react-router-dom'
 import './App.css'
 import { Header } from './components/Header/Header'
-import { TweetList } from './components/TweetList/TweetList'
 
-function App() {
+const HomePage = lazy(() => import('./pages/HomePage/HomePage'))
+const TweetPage = lazy(() => import('./pages/TweetPage/TweetPage'))
+
+export const App = () => {
   return (
     <>
-      <Header />
-      <TweetList/>
+      <Routes>
+        <Route path="/" element={<Header/>}>
+          <Route index element={<HomePage />} />
+          <Route path="tweets" element={TweetPage}/>
+        </Route>
+      </Routes>
     </>
   )
 }
 
-export default App
+
