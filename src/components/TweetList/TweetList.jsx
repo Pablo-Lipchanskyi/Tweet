@@ -1,6 +1,6 @@
 import { useEffect, useState } from 'react';
 import TweetItem from './../TweetItem/TweetItem';
-import { fetchTweets } from '../../services/tweetApi';
+import { fetchTweets } from './../../services/tweetApi';
 import css from './TweetList.module.css';
 
 export const TweetList = () => {

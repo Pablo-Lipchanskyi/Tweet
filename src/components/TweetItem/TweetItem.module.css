@@ -13,18 +13,6 @@
     padding-top: 28px;
     padding-bottom: 36px;
 }
-
-@media (min-width: 768px) {
-    .tweet_item {
-        width: calc(33.33% - 20px);
-    }
-}
-
-@media (min-width: 1024px) {
-    .tweet_item {
-        width: calc(25% - 20px);
-    }
-}
 .tweet_item_logo{
     position: absolute;
     top: 20px;

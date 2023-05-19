@@ -46,19 +46,15 @@
     font-weight: 600;
     font-size: 14px;
     line-height: 18px;
-
-    &:focus {
-        background: #2b78ef;
-        box-shadow: 4px 2px 16px rgba(136, 165, 191, 0.48);
-    }
-
-    &:hover {
-        background: #2b78ef;
-        box-shadow: 4px 2px 16px rgba(136, 165, 191, 0.48);
-    }
-
-    @media screen and (min-width: 768px) {
-        font-size: 18px;
-        line-height: 1.33;
-    }
 }
+    .returnButton:focus {
+        background: #2b78ef;
+        box-shadow: 4px 2px 16px rgba(136, 165, 191, 0.48);
+    }
+
+    .returnButton:hover {
+        background: #2b78ef;
+        box-shadow: 4px 2px 16px rgba(136, 165, 191, 0.48);
+    }
+
+    

@@ -5,7 +5,7 @@ import quest from './../../images/questions.png'
 import defAvatar from './../../images/avatar.png'
 import arrow from './../../images/arrow.png'
 import css from './TweetItem.module.css'
-import { updateFollowers } from '../../services/tweetApi';
+import { updateFollowers } from './../../services/tweetApi';
 
 const TweetItem = ({ id, avatar, tweets, followers }) => {
   const [isFollowing, setIsFollowing] = useState(false);
