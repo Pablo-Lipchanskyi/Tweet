@@ -6,7 +6,9 @@ import 'normalize.css';
 import './index.css'
 
 ReactDOM.createRoot(document.getElementById('root')).render(
-    <BrowserRouter basename="/Tweet">
+  <React.StrictMode>
+    <BrowserRouter basename="/">
       <App />
     </BrowserRouter>
+  </React.StrictMode>,
 )
