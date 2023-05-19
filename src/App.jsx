@@ -1,5 +1,5 @@
 import { Suspense, lazy } from 'react';
-import { Route, Routes } from 'react-router-dom';
+import { Route, Routes, redirect } from 'react-router-dom';
 import './App.css';
 import { Header } from './components/Header/Header';
 import { Footer } from './components/Footer/Footer';
@@ -16,7 +16,8 @@ export const App = () => {
       <Routes>
         <Route path="/" element={<HomePages />}/>
         <Route path="/tweets" element={<TweetPage />} />
-        <Route path="*" element={<NotFoundPage />} />
+          
+        <Route path='*' element={<HomePages/>} />
       </Routes>
       </Suspense>
       <Footer/>
