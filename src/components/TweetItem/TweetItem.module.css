@@ -44,7 +44,6 @@
 .tweet_item_avatar{
     margin: 0 auto 0 auto;
     transform: translate(0, 45%);
-    z-index: 1;
     width: 80px;
     height: 80px;
 }

@@ -1,12 +1,11 @@
 import { Navigation } from '../Navigation/Navigation';
-import './Header.css'
+import css from './Header.module.css'
 
 export const Header = () => {
     return (
-        <>
-            <header className="header_text">Tweet your friends</header>
+        <div className={css.header_div}>
+            <header className={css.header_text}>Tweet your friends</header>
             <Navigation/>
-
-        </>
+        </div>
     );
 }

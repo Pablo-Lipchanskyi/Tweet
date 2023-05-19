@@ -1,6 +1,6 @@
 import { useEffect, useState } from 'react';
 import TweetItem from './../TweetItem/TweetItem';
-import { fetchTweets } from '../services/tweetApi';
+import { fetchTweets } from '../../services/tweetApi';
 import css from './TweetList.module.css';
 
 export const TweetList = () => {
@@ -11,7 +11,6 @@ export const TweetList = () => {
     const fetchData = async () => {
       const data = await fetchTweets();
       setTweets(data);
-      console.log(data)
     };
 
     fetchData();
@@ -24,7 +23,7 @@ export const TweetList = () => {
 
   return (
     <>
-    <div className={css.tweet_list}>
+      <div className={css.tweet_list}>
       {tweets.slice(0, visibleTweets).map(({ avatar, tweets, followers, id }) => (
         <TweetItem
           key={id}

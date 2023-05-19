@@ -5,7 +5,7 @@ import quest from './../../images/questions.png'
 import defAvatar from './../../images/avatar.png'
 import arrow from './../../images/arrow.png'
 import css from './TweetItem.module.css'
-import { updateFollowers } from '../services/tweetApi';
+import { updateFollowers } from '../../services/tweetApi';
 
 const TweetItem = ({ id, avatar, tweets, followers }) => {
   const [isFollowing, setIsFollowing] = useState(false);
@@ -38,7 +38,7 @@ const TweetItem = ({ id, avatar, tweets, followers }) => {
       <img src={arrow} className={css.tweet_item_arrow} alt="Arrow"></img>
       <img src={defAvatar || avatar} className={css.tweet_item_avatar} alt="Avatar"></img>
       <p className={css.tweet_item_tweets}>{tweets} TWEETS</p>
-      <p className={css.tweet_item_followers}>{followers} FOLLOWERS</p>
+      <p className={css.tweet_item_followers}>{followers.toLocaleString('en-US', { useGrouping: true })} FOLLOWERS</p>
       <button
         type="button"
         className={`${css.tweet_item_button} ${isFollowing ? css.following : ''}`}

@@ -12,10 +12,13 @@
 
 .nav_link {
     text-decoration: none;
-    color: #000;
+    color: #EBD8FF;
     margin-right: 10px;
     font-size: 16px;
     font-weight: 600;
+    &:active{
+        color: #ff0000;
+    }
 }
 
 .nav_link:hover {
