@@ -1,4 +1,3 @@
-Tweet
 Tweet is a social media application that allows users to share and interact with tweets. This project is the frontend part of the Tweet application.
 
 Features
